@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Semana_6_TecsupStoreTheme {
-
+                AppNavegacion()
             }
         }
     }
