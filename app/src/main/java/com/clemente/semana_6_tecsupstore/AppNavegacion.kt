@@ -1,6 +1,8 @@
 package com.clemente.semana_6_tecsupstore
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.DrawerValue
@@ -17,6 +19,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.clemente.semana_6_tecsupstore.components.AppDrawer
+import com.clemente.semana_6_tecsupstore.components.TarjetaProducto
+import com.clemente.semana_6_tecsupstore.model.Producto
+import com.clemente.semana_6_tecsupstore.model.productos
 import kotlinx.coroutines.launch
 
 
@@ -63,10 +68,15 @@ fun AppNavegacion() {
                 )
             }
         ) { innerPadding ->
-            Column(
+            LazyColumn(
                 modifier = Modifier.padding(innerPadding)
             ) {
-                Text("PRUEBA")
+
+                items(productos){
+                    producto ->
+
+                    TarjetaProducto(producto)
+                }
             }
 
 
