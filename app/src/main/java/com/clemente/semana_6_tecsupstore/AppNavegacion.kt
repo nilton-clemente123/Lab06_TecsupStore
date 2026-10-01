@@ -13,11 +13,14 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.sp
 import com.clemente.semana_6_tecsupstore.components.AppDrawer
 import com.clemente.semana_6_tecsupstore.components.TarjetaProducto
 import com.clemente.semana_6_tecsupstore.model.Producto
@@ -46,7 +49,13 @@ fun AppNavegacion() {
 
                 TopAppBar(
                     title = {
-                        Text("TECSUP Store")
+
+                        Column() {
+                            Text("TECSUP Store")
+                            Text("Mas vendidos",
+                                fontSize = 15.sp)
+                        }
+
                     },
 
                     navigationIcon = {
@@ -61,11 +70,16 @@ fun AppNavegacion() {
 
                             Icon(
                                 imageVector = Icons.Default.Menu,
-                                contentDescription = "Abrir menú"
+                                contentDescription = "Abrir menú" ,
+                                tint = Color.White
                             )
                         }
-                    }
-                )
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = Color(121, 22, 140, 255),
+                        titleContentColor = Color.White)
+                    )
+
             }
         ) { innerPadding ->
             LazyColumn(

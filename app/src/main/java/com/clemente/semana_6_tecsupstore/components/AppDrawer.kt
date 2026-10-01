@@ -1,12 +1,17 @@
 package com.clemente.semana_6_tecsupstore.components
 
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -19,6 +24,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.NavigationDrawerItem
+import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -27,7 +33,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun AppDrawer() {
@@ -44,15 +53,25 @@ fun AppDrawer() {
         ) {
 
             Row() {
-                Icon(
-                    imageVector = Icons.Default.AccountCircle,
-                    contentDescription = "Usuario",
-                    modifier = Modifier.padding(16.dp)
-
-                )
+                Box(
+                    modifier = Modifier
+                        .size(60.dp)
+                        .background(
+                            color = Color(0xFFD1BBE1),
+                            shape = CircleShape
+                        ),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = "NC",
+                        color = Color(88, 7, 129, 255),
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
 
                 Spacer(
-                    modifier = Modifier.height(8.dp)
+                    modifier = Modifier.width(15.dp)
                 )
 
                 Column() {
@@ -71,11 +90,6 @@ fun AppDrawer() {
 
 
             }
-
-
-
-
-
 
             Spacer(
                 modifier = Modifier.height(16.dp)
@@ -101,7 +115,13 @@ fun AppDrawer() {
                         imageVector = Icons.Default.RadioButtonUnchecked,
                         contentDescription = "Inicio"
                     )
-                }
+                },
+
+                colors = NavigationDrawerItemDefaults.colors(
+                    selectedContainerColor = Color(0xFFD1BBE1),
+                    selectedIconColor = Color(0xFF580781),
+                    selectedTextColor = Color(0xFF580781)
+                )
             )
 
 
@@ -118,7 +138,12 @@ fun AppDrawer() {
                         imageVector = Icons.Default.RadioButtonUnchecked,
                         contentDescription = "Mis pedidos"
                     )
-                }
+                },
+                colors = NavigationDrawerItemDefaults.colors(
+                    selectedContainerColor = Color(0x80D1BBE1),
+                    selectedIconColor = Color(0xFF580781),
+                    selectedTextColor = Color(0xFF580781)
+                )
             )
 
 
@@ -135,7 +160,12 @@ fun AppDrawer() {
                         imageVector = Icons.Default.RadioButtonUnchecked,
                         contentDescription = "Favoritos"
                     )
-                }
+                },
+                colors = NavigationDrawerItemDefaults.colors(
+                    selectedContainerColor = Color(0x80D1BBE1),
+                    selectedIconColor = Color(0xFF580781),
+                    selectedTextColor = Color(0xFF580781)
+                )
             )
 
 
@@ -152,7 +182,12 @@ fun AppDrawer() {
                         imageVector = Icons.Default.RadioButtonUnchecked,
                         contentDescription = "Perfil"
                     )
-                }
+                },
+                colors = NavigationDrawerItemDefaults.colors(
+                    selectedContainerColor = Color(0x80D1BBE1),
+                    selectedIconColor = Color(0xFF580781),
+                    selectedTextColor = Color(0xFF580781)
+                )
             )
 
 
