@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun TarjetaProducto(
     producto: Producto,
+    esFavorito: Boolean,
     onToggleFavorito: (Producto) -> Unit
 ) {
 
@@ -122,7 +123,7 @@ fun TarjetaProducto(
 
             DropdownMenuItem(
                 text = {
-                    Text("Favoritos")
+                    Text(if (esFavorito) "Eliminar de favoritos" else "Agregar a favoritos")
                 },
                 onClick = {
                     onToggleFavorito(producto)

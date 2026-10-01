@@ -107,6 +107,7 @@ fun AppNavegacion() {
 
                     TarjetaProducto(
                         producto = producto,
+                        esFavorito = favoritos.any { it.id == producto.id },
                         onToggleFavorito = onToggleFavorito
                     )
                 }
