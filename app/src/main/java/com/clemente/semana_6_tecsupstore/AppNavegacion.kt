@@ -16,7 +16,11 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -38,10 +42,22 @@ fun AppNavegacion() {
 
     val scope = rememberCoroutineScope()
 
+    var favoritos by remember {
+        mutableStateOf(listOf<Producto>())
+    }
+
+    val onToggleFavorito: (Producto) -> Unit = { producto ->
+        favoritos = if (favoritos.any { it.id == producto.id }) {
+            favoritos.filterNot { it.id == producto.id }
+        } else {
+            favoritos + producto
+        }
+    }
+
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            AppDrawer()
+            AppDrawer(contadorFavoritos = favoritos.size)
         }
     ) {
         Scaffold(
@@ -89,7 +105,10 @@ fun AppNavegacion() {
                 items(productos){
                     producto ->
 
-                    TarjetaProducto(producto)
+                    TarjetaProducto(
+                        producto = producto,
+                        onToggleFavorito = onToggleFavorito
+                    )
                 }
             }
 

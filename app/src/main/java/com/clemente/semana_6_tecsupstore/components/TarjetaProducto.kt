@@ -37,7 +37,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun TarjetaProducto(
-    producto: Producto
+    producto: Producto,
+    onToggleFavorito: (Producto) -> Unit
 ) {
 
     var menuAbierto by remember {
@@ -124,6 +125,7 @@ fun TarjetaProducto(
                     Text("Favoritos")
                 },
                 onClick = {
+                    onToggleFavorito(producto)
                     menuAbierto = false
                 }
             )

@@ -13,12 +13,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.RadioButtonUnchecked
 import androidx.compose.material.icons.filled.ShoppingBag
+import androidx.compose.material3.Badge
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -39,7 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun AppDrawer() {
+fun AppDrawer(contadorFavoritos: Int) {
 
     var opcionSeleccionada by remember {
         mutableStateOf("Mis pedidos")
@@ -160,6 +157,16 @@ fun AppDrawer() {
                         imageVector = Icons.Default.RadioButtonUnchecked,
                         contentDescription = "Favoritos"
                     )
+                },
+                badge = {
+                    if (contadorFavoritos > 0) {
+                        Badge(
+                            containerColor = Color(0xFF580781),
+                            contentColor = Color.White
+                        ) {
+                            Text("$contadorFavoritos")
+                        }
+                    }
                 },
                 colors = NavigationDrawerItemDefaults.colors(
                     selectedContainerColor = Color(0x80D1BBE1),
