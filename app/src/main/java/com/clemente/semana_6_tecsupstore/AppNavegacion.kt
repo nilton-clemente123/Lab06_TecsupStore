@@ -120,3 +120,4 @@ private fun tituloPantalla(ruta: String?): Pair<String, String> {
         else -> "TECSUP Store" to "Mas vendidos"
     }
 }
+
